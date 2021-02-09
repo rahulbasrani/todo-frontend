@@ -1,19 +1,26 @@
-import axios, {AxiosInstance, AxiosResponse, AxiosRequestConfig, AxiosError} from 'axios';
-import * as _ from 'lodash';
+import axios, {
+  AxiosInstance,
+  AxiosResponse,
+  AxiosRequestConfig,
+  AxiosError,
+} from "axios";
+import * as _ from "lodash";
 
-import Config from '@config';
-import {APIService} from './api.service';
+import Config from "@config";
+import { APIService } from "./api.service";
 
 export class APIServiceImpl implements APIService {
-  service: AxiosInstance
+  service: AxiosInstance;
   constructor() {
     this.service = axios.create({
       baseURL: Config.apiEndpoint,
     });
-    this.service.interceptors.request.use((request): AxiosRequestConfig => {
-      // can modify request here ex- send auth token
-      return request;
-    });
+    this.service.interceptors.request.use(
+      (request): AxiosRequestConfig => {
+        // can modify request here ex- send auth token
+        return request;
+      }
+    );
 
     this.service.interceptors.response.use(
       (response): AxiosResponse => {
@@ -23,12 +30,12 @@ export class APIServiceImpl implements APIService {
       (error): Promise<AxiosError> => {
         // ex- logout user if statusCode is 401
         return Promise.reject(error);
-      },
+      }
     );
   }
 
   protected static parseError(response: AxiosResponse): string {
-    return _.get(response, 'response.data.error', '');
+    return _.get(response, "response.data.error", "");
   }
 
   protected async get(path: string): Promise<AxiosResponse> {

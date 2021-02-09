@@ -1,4 +1,4 @@
-import {Users} from '@models';
+import { Users } from "@models";
 
 export interface UserProps {
   users: Users;

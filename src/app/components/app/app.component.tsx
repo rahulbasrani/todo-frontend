@@ -1,12 +1,12 @@
+import * as React from "react";
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 
-import * as React from 'react';
-import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
+import { UsersComponent, HomeComponent } from "@components";
+import Todos from "../todo/todos.component";
+import { PrivateRoute } from "@hoc";
+import { DIContext, getDependencies } from "@helpers";
 
-import {UsersComponent, HomeComponent} from '@components';
-import {PrivateRoute} from '@hoc';
-import {DIContext, getDependencies} from '@helpers';
-
-import './app.styles.css';
+import "./app.styles.css";
 
 const App = (): JSX.Element => {
   return (
@@ -15,7 +15,11 @@ const App = (): JSX.Element => {
         <Router>
           <div>
             <nav>
-              <img className="logo" src={require('@assets/images/logo.png')} alt="" />
+              <img
+                className="logo"
+                src={require("@assets/images/logo.png")}
+                alt=""
+              />
               <ul id="menu">
                 <li>
                   <Link to="/">Home</Link>
@@ -23,17 +27,22 @@ const App = (): JSX.Element => {
                 <li>
                   <Link to="/users">Users</Link>
                 </li>
+                <li>
+                  <Link to="/todos">Todos</Link>
+                </li>
               </ul>
             </nav>
             <Switch>
               <Route exact path="/" component={HomeComponent} />
+
               <PrivateRoute exact path="/users" component={UsersComponent} />
+              <Route exact path="/todos" component={Todos} />
             </Switch>
           </div>
         </Router>
       </div>
     </DIContext.Provider>
   );
-}
+};
 
 export default App;
