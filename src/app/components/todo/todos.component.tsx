@@ -8,7 +8,8 @@ const Todos: React.FC = () => {
     setName(e.target.value);
   };
   const dependencies = React.useContext(DIContext);
-  const { todoService } = dependencies;
+  const { todoService, translation } = dependencies;
+
   const submitBtn = (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
     console.log(name);
@@ -20,12 +21,12 @@ const Todos: React.FC = () => {
       <form>
         <input
           type="text"
-          placeholder="Enter input"
+          placeholder={translation.t("ENTER_INPUTS")}
           onChange={inputValue}
           value={name}
         />
         <button type="submit" onClick={submitBtn}>
-          Add
+          {translation.t("ADD_INPUT")}
         </button>
       </form>
     </>
