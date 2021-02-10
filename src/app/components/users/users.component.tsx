@@ -68,7 +68,7 @@ const UsersComponent = (props: UserComponentProps): JSX.Element => {
   return (
     <div>
       <h3>{translation.t("LABLE_USERS")}</h3>
-      <button onClick={logout}>Logout</button>
+      <button onClick={logout}>{translation.t("LOGOUT")}</button>
       <br />
       <br />
       {isLoading && <span>{translation.t("LABEL_LOADING_USERS")}</span>}

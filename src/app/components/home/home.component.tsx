@@ -24,7 +24,6 @@ const HomeComponent = (props: AppProps): JSX.Element => {
 
     if (username && password) {
       authService.login();
-      // redirect to users page
       props.history.push("/users");
     }
   };
@@ -49,7 +48,7 @@ const HomeComponent = (props: AppProps): JSX.Element => {
           <input
             type="text"
             onChange={handleChange}
-            placeholder="username (any)"
+            placeholder={translation.t("USERNAME_VALID")}
             id="username"
           />
           {submitted && !username && (
@@ -64,7 +63,7 @@ const HomeComponent = (props: AppProps): JSX.Element => {
           <input
             type="password"
             onChange={handleChange}
-            placeholder="password (any)"
+            placeholder={translation.t("PASSWORD_VALID")}
             id="password"
           />
           {submitted && !password && (
@@ -74,7 +73,7 @@ const HomeComponent = (props: AppProps): JSX.Element => {
           )}
         </div>
         <br />
-        <button>Login</button>
+        <button>{translation.t("LOGIN")}</button>
       </form>
     </div>
   );

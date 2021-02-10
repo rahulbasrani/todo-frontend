@@ -5,5 +5,9 @@
   "USERNAME_INVALID": "Please enter a valid username",
   "PASSWORD_INVALID": "Please enter a valid password",
   "ENTER_INPUTS": "Enter input",
-  "ADD_INPUT": "Add"
+  "ADD_INPUT": "Add",
+  "USERNAME_VALID": "username(any)",
+  "PASSWORD_VALID": "password(any)",
+  "LOGIN": "LOGIN",
+  "LOGOUT": "LOGOUT"
 }
