@@ -28,7 +28,6 @@ const Todos: React.FC = () => {
             onChange={inputValue}
             value={name}
           />
-
           <button
             type="submit"
             onClick={submitBtn}

@@ -1,9 +1,7 @@
 import * as React from "react";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 
-import { UsersComponent, HomeComponent } from "@components";
 import Todos from "../todo/todos.component";
-import { PrivateRoute } from "@hoc";
 import { DIContext, getDependencies } from "@helpers";
 
 import "./app.styles.css";
@@ -22,20 +20,11 @@ const App = (): JSX.Element => {
               />
               <ul id="menu">
                 <li>
-                  <Link to="/">Home</Link>
-                </li>
-                <li>
-                  <Link to="/users">Users</Link>
-                </li>
-                <li>
                   <Link to="/todos">Todos</Link>
                 </li>
               </ul>
             </nav>
             <Switch>
-              <Route exact path="/" component={HomeComponent} />
-
-              <PrivateRoute exact path="/users" component={UsersComponent} />
               <Route exact path="/todos" component={Todos} />
             </Switch>
           </div>
