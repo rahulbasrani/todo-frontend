@@ -1,7 +1,9 @@
 import * as React from "react";
 import { ChangeEvent } from "react";
+
 import { DIContext } from "@helpers";
 import "./todo.style.css";
+
 const Todos: React.FC = () => {
   const [name, setName] = React.useState("");
 
@@ -13,13 +15,12 @@ const Todos: React.FC = () => {
 
   const submitBtn = (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    console.log(name);
     todoService.addTodo(name);
     setName("");
   };
   return (
     <>
-      <form className="form-inline formss">
+      <form className="form-inline center-form">
         <div className="form-group mx-sm-3 mb-2">
           <input
             type="text"

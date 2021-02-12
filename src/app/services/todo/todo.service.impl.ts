@@ -5,7 +5,6 @@ import { TodoService } from "./todo.service";
 export default class TodoServiceImpl
   extends APIServiceImpl
   implements TodoService {
-  static readonly RESOURCE = "/todo";
   addTodo(name: string): void {
     let data = localStorage.getItem("todo");
     /****  Stringify setItem values that takes string or null  ****/
