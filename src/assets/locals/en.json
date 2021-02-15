@@ -9,5 +9,6 @@
   "USERNAME_VALID": "username(any)",
   "PASSWORD_VALID": "password(any)",
   "LOGIN": "LOGIN",
-  "LOGOUT": "LOGOUT"
+  "LOGOUT": "LOGOUT",
+  "TODO": "Todo"
 }

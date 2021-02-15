@@ -1,19 +1,40 @@
 ## Description
 
-Add function to store todo items in local storage.
+_A few sentences describing the overall goals of the pull request's commits._
 
-## Database schema changes
+## Screenshot
 
 _For UI changes, include a screenshot of the changes._
 
 ## Tests
 
-None
+_Describe the automated and manual tests you performed to verify it works._
 
 ### Automated test cases added
 
-- _None_
+- _Description of automated test 1_
+- _Description of automated test 2_
+- _Description of automated test 3_
 
 ### Manual test cases run
 
-- _None_
+_For each manual test case, list the steps to test or reproduce the PR._
+
+- _Description of manual test 1_
+- _Description of manual test 2_
+- _Description of manual test 3_
+
+### Browsers tested
+
+- [ ] Chrome
+- [ ] Safari
+- [ ] Internet Explorer
+- [ ] Firefox
+
+## Platform dependencies
+
+Does this depend on or impact
+
+- [ ] iOS
+- [ ] Android
+- [ ] API

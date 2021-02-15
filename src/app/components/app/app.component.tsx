@@ -7,6 +7,8 @@ import { DIContext, getDependencies } from "@helpers";
 import "./app.styles.css";
 
 const App = (): JSX.Element => {
+  const dependencies = React.useContext(DIContext);
+  const { translation } = dependencies;
   return (
     <DIContext.Provider value={getDependencies()}>
       <div className="center-wrap">
@@ -20,12 +22,12 @@ const App = (): JSX.Element => {
               />
               <ul id="menu">
                 <li>
-                  <Link to="/todos">Todos</Link>
+                  <Link to="/todo">{translation.t("TODO")}</Link>
                 </li>
               </ul>
             </nav>
             <Switch>
-              <Route exact path="/todos" component={Todos} />
+              <Route exact path="/todo" component={Todos} />
             </Switch>
           </div>
         </Router>
