@@ -1,11 +1,7 @@
-import { APIServiceImpl } from "../api";
-
 import { TodoService } from "./todo.service";
 
-export default class TodoServiceImpl
-  extends APIServiceImpl
-  implements TodoService {
-  addTodo(name: string): void {
+export default class TodoServiceImpl implements TodoService {
+  addTodo(name: string): Promise<void> {
     let data = localStorage.getItem("todo");
     /****  Stringify setItem values that takes string or null  ****/
     if (data) {
@@ -15,5 +11,8 @@ export default class TodoServiceImpl
     } else {
       localStorage.setItem("todo", JSON.stringify([name]));
     }
+    return new Promise((resolve, reject) => {
+      resolve();
+    });
   }
 }

@@ -6,3 +6,30 @@ ul#menu li {
   display: inline;
   padding: 10px;
 }
+.nav_bg {
+  background-color: #3498db;
+}
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.5rem !important;
+  color: white;
+  padding: 2px;
+  background: #3498db;
+  text-shadow: 1px 1px white;
+}
+
+.navbar-brand:hover {
+  color: #3498db !important;
+  background: white;
+  text-shadow: 1px 1px #3498db;
+}
+
+@media (max-width: 991px) {
+  .navbar-brand {
+    font-size: 1.5rem !important;
+  }
+  .menu_active {
+    font-weight: bold;
+    border-bottom: none;
+  }
+}

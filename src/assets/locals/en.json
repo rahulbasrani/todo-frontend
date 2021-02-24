@@ -10,5 +10,8 @@
   "PASSWORD_VALID": "password(any)",
   "LOGIN": "LOGIN",
   "LOGOUT": "LOGOUT",
-  "TODO": "Todo"
+  "TODO": "Todo App",
+  "DELETE": "Delete",
+  "EDIT": "Edit",
+  "SAVE": "Save"
 }

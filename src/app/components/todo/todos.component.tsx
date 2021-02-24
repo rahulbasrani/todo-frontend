@@ -1,6 +1,5 @@
 import * as React from "react";
 import { ChangeEvent } from "react";
-
 import { DIContext } from "@helpers";
 import "./todo.style.css";
 
@@ -18,8 +17,11 @@ const Todos: React.FC = () => {
     todoService.addTodo(name);
     setName("");
   };
+
+  /* Input element to Add todo items into localStorage */
+
   return (
-    <>
+    <div className="form-center">
       <form className="form-inline center-form">
         <div className="form-group mx-sm-3 mb-2">
           <input
@@ -38,7 +40,7 @@ const Todos: React.FC = () => {
           </button>
         </div>
       </form>
-    </>
+    </div>
   );
 };
 
