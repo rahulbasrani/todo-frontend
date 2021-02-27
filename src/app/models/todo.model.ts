@@ -1,6 +1,8 @@
 export class Todo {
-  name: ArrayBuffer;
-  constructor(user: any) {
-    this.name = user.name;
+  name: string;
+  id: number;
+  constructor(todo: { [k: string]: any }) {
+    this.name = todo.name;
+    this.id = todo.id;
   }
 }

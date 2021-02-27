@@ -3,6 +3,7 @@ import {
   BrowserRouter as Router,
   Route,
   NavLink,
+  Link,
   Switch,
 } from "react-router-dom";
 
@@ -20,10 +21,13 @@ const App = (): JSX.Element => {
         <Router>
           <div className="nav_bg mb-0">
             <div className="container-fluid">
-              <NavLink className="navbar-brand" to="/">
+              <NavLink className="navbar-brand" to="/todo">
                 {translation.t("TODO")}
               </NavLink>
             </div>
+          </div>
+          <div>
+            <Link to="/todo">{translation.t("TODODOWN")}</Link>
           </div>
           <Switch>
             <Route exact path="/todo" component={Todos} />

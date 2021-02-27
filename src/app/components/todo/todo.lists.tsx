@@ -36,9 +36,9 @@ const TodoLists = ({ text, id, onSelect, editItems }: Props) => {
       {state ? (
         <form onSubmit={submitEdit}>
           <div className="form-group">
-            <div className="todo_style">
-              <div className="todo_style">
-                <div className="small_input">
+            <div className="todo-style">
+              <div className="todo-style">
+                <div className="small-input">
                   <input
                     type="text"
                     className="form-control"
@@ -55,7 +55,7 @@ const TodoLists = ({ text, id, onSelect, editItems }: Props) => {
           </div>
         </form>
       ) : (
-        <div className="todo_style">
+        <div className="todo-style">
           <button
             type="button"
             className="btn btn-danger"
@@ -66,7 +66,7 @@ const TodoLists = ({ text, id, onSelect, editItems }: Props) => {
             {translation.t("DELETE")}
           </button>
           <li>{text}</li>
-          <div className="todo_style">
+          <div className="todo-style">
             <button
               type="button"
               className="btn btn-secondary"
