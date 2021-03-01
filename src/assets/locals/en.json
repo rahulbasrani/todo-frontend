@@ -1,6 +1,9 @@
 {
   "ENTER_INPUTS": "Enter input",
   "ADD_INPUT": "Add",
+  "DELETE_INPUT": "Delete",
+  "USERNAME_VALID": "username(any)",
+  "PASSWORD_VALID": "password(any)",
   "LOGIN": "LOGIN",
   "LOGOUT": "LOGOUT",
   "TODO": "Todo App",
