@@ -10,13 +10,13 @@
   width: 100%;
 }
 .success {
-  font-size: 1rem;
+  font-size: 3rem;
   color: rgb(89, 255, 89);
   font-weight: bold;
 }
 
 .danger {
-  font-size: 5rem;
+  font-size: 3rem;
   color: rgb(255, 83, 83);
   font-weight: bold;
 }

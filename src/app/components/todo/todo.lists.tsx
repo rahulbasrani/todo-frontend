@@ -37,21 +37,19 @@ const TodoLists = ({ text, id, onSelect, editItems }: Props) => {
         <form onSubmit={submitEdit}>
           <div className="form-group">
             <div className="todo-style">
-              <div className="todo-style">
-                <div className="small-input">
-                  <input
-                    type="text"
-                    className="form-control"
-                    value={name}
-                    name={name}
-                    onChange={inputVal}
-                  />
-                </div>
+              <div className="small-input">
+                <input
+                  type="text"
+                  className="form-control"
+                  value={name}
+                  name={name}
+                  onChange={inputVal}
+                />
               </div>
-              <button type="submit" className="btn btn-primary">
-                {translation.t("SAVE")}
-              </button>
             </div>
+            <button type="submit" className="btn btn-primary">
+              {translation.t("SAVE")}
+            </button>
           </div>
         </form>
       ) : (

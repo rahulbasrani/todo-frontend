@@ -6,6 +6,7 @@ export default class TodoServiceImpl implements TodoService {
   static readonly RESOURCE = "/todo";
   async addTodo(name: string, id: number): Promise<ServiceResponse<Todo>> {
     try {
+      if (name === "") throw "robbert";
       let todos = {
         name: name,
         id: id,

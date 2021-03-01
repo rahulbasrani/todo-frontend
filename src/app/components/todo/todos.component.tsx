@@ -4,39 +4,39 @@ import { ComponentViewState, DIContext } from "@helpers";
 import "./todo.style.css";
 
 const Todos: React.FC = () => {
-  const [name, setName] = React.useState({
-    names: "",
+  const [todo, setTodo] = React.useState({
+    name: "",
     index: Math.floor(Math.random() * 10000),
   });
+  const [successReaction, setSuccessReaction] = React.useState("");
+  const [failReaction, setFailReaction] = React.useState("");
 
   const [
     componentState,
     setComponentState,
   ] = React.useState<ComponentViewState>(ComponentViewState.DEFAULT);
+
   const inputValue = (e: ChangeEvent<HTMLInputElement>) => {
-    setName({ ...name, names: e.target.value });
+    setTodo({ ...todo, name: e.target.value });
   };
-  let reaction = "";
-  let clsName = "";
+
   const dependencies = React.useContext(DIContext);
   const { todoService, translation } = dependencies;
   const submitBtn = async (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    const response = await todoService.addTodo(name.names, name.index);
+    const response = await todoService.addTodo(todo.name, todo.index);
     if (response.data) {
       setComponentState(ComponentViewState.LOADED);
+      setSuccessReaction(`${translation.t("SUCCESSMSG")}`);
+      setTimeout(setSuccessReaction, 2000);
     } else {
       setComponentState(ComponentViewState.ERROR);
+      setFailReaction(`${translation.t("ERRORMSG")}`);
+      setTimeout(setFailReaction, 2000);
     }
-    setName({ names: "", index: Math.floor(Math.random() * 10000) });
+    setTodo({ name: "", index: Math.floor(Math.random() * 100000) });
   };
-  if (componentState == ComponentViewState.LOADED) {
-    reaction = `${translation.t("SUCCESSMSG")}`;
-    clsName = `${translation.t("CLSNAMEMSUCCESS")}`;
-  } else if (componentState == ComponentViewState.ERROR) {
-    reaction = `${translation.t("ERRORMSG")}`;
-    clsName = `${translation.t("CLSNAMEREJECT")}`;
-  }
+
   /* Input element to Add todo items into localStorage */
 
   return (
@@ -48,7 +48,7 @@ const Todos: React.FC = () => {
             placeholder={translation.t("ENTER_INPUTS")}
             className="form-control ml-8"
             onChange={inputValue}
-            value={name.names}
+            value={todo.name}
           />
           <button
             type="submit"
@@ -59,7 +59,8 @@ const Todos: React.FC = () => {
           </button>
         </div>
       </form>
-      <div className={clsName}>{reaction}</div>
+      <span className="success">{successReaction}</span>
+      <span className="danger">{failReaction}</span>
     </div>
   );
 };
