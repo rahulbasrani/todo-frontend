@@ -6,7 +6,6 @@ export default class TodoServiceImpl implements TodoService {
   static readonly RESOURCE = "/todo";
   async addTodo(name: string, id: number): Promise<ServiceResponse<Todo>> {
     try {
-      if (name === "") throw "robbert";
       let todos = {
         name: name,
         id: id,
@@ -24,35 +23,6 @@ export default class TodoServiceImpl implements TodoService {
       return new ServiceResponse<Todo>(todo);
     } catch (e) {
       return new ServiceResponse<Todo>(undefined, e);
-    }
-  }
-
-  deleteTodo(id: number): void {
-    let data = localStorage.getItem("todo");
-    if (data) {
-      let dataArr = JSON.parse(data);
-      dataArr.splice(id, 1);
-      localStorage.setItem("todo", JSON.stringify(dataArr));
-    }
-  }
-
-  editTodo(id: number, text: string): void {
-    let data = localStorage.getItem("todo");
-    if (data) {
-      let dataArr = JSON.parse(data);
-      dataArr.splice(id, 1, text);
-      localStorage.setItem("todo", JSON.stringify(dataArr));
-    }
-  }
-
-  getTodos(): string[] {
-    let data = localStorage.getItem("todo");
-    if (data) {
-      let dataArr = JSON.parse(data);
-      localStorage.setItem("todo", JSON.stringify(dataArr));
-      return dataArr;
-    } else {
-      return [];
     }
   }
 }
