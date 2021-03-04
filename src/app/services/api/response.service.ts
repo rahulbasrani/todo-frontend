@@ -1,4 +1,4 @@
-import * as _ from 'lodash';
+import * as _ from "lodash";
 
 /**
  * Every function in service class returns response
@@ -9,9 +9,7 @@ export class ServiceResponse<T> {
   data?: T;
   error?: string;
 
-  constructor(
-    data?: T,
-    error?: string) {
+  constructor(data?: T, error?: string) {
     this.data = data;
     this.error = error;
   }
