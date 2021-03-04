@@ -1,7 +1,20 @@
 {
-  "HELLO_WORD": "Hello World",
-  "LABLE_USERS": "Users",
-  "LABEL_LOADING_USERS": "Loading Users...",
-  "USERNAME_INVALID": "Please enter a valid username",
-  "PASSWORD_INVALID": "Please enter a valid password"
+  "ENTER_INPUTS": "Enter input",
+  "ADD_INPUT": "Add",
+  "DELETE_INPUT": "Delete",
+  "USERNAME_VALID": "username(any)",
+  "PASSWORD_VALID": "password(any)",
+  "LOGIN": "LOGIN",
+  "LOGOUT": "LOGOUT",
+  "TODO": "Todo App",
+  "DELETE": "Delete",
+  "EDIT": "Edit",
+  "SAVE": "Save",
+  "TODODOWN": "Todo 👇",
+  "SUCCESSMSG": "😄Your data has been successfully inserted😄",
+  "ERRORMSG": "😲Your data shows error😲",
+  "CLSNAMEMSUCCESS": "success",
+  "CLSNAMEREJECT": "danger",
+  "DELETEMSG": "🎃your data has been successfully deleted🎃",
+  "EDITMSG": "😄Your data has been successfully Edited😄"
 }
