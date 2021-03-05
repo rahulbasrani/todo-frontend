@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 .center-form {
   margin-top: 10vh;
   display: flex;
@@ -18,9 +19,11 @@
   color: rgb(89, 255, 89);
   font-weight: bold;
 }
+
 input {
   width: 75vw !important;
 }
+
 .danger {
   font-size: 3rem;
   color: rgb(255, 83, 83);

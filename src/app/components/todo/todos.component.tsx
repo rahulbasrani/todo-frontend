@@ -1,4 +1,5 @@
 import * as React from "react";
+
 import { useEffect } from "react";
 import { ChangeEvent } from "react";
 import TodoLists from "./todo.lists";
@@ -9,12 +10,15 @@ import "./todo.style.css";
 const Todos: React.FC = () => {
   const dependencies = React.useContext(DIContext);
   const { todoService, translation } = dependencies;
+
   const [todo, setTodo] = React.useState<Todo>({
     name: "",
     id: Math.floor(Math.random() * 10000),
   });
+
   const [objects, setObjects] = React.useState<Todo[]>([]);
   const [successReaction, setSuccessReaction] = React.useState("");
+
   const [
     componentState,
     setComponentState,
@@ -47,6 +51,7 @@ const Todos: React.FC = () => {
       setTimeout(setSuccessReaction, 2000);
     } else {
       setComponentState(ComponentViewState.ERROR);
+
       setTimeout(setComponentState, 2000);
     }
     let todoName = todo.name;
