@@ -2,17 +2,18 @@ import * as React from "react";
 import { useState } from "react";
 import { ChangeEvent } from "react";
 import { DIContext } from "@helpers";
+import { Todo } from "@models";
 import "./todo.style.css";
 
 /***  To show the list of todos but not implemented yet ***/
 
 interface Props {
-  text: { name: string; id: number };
+  todo: Todo;
   id: number;
   onSelect: (id: number) => void;
   editItems: (names: string, ids: number) => void;
 }
-const TodoLists = ({ text, id, onSelect, editItems }: Props) => {
+const TodoLists = ({ todo, id, onSelect, editItems }: Props) => {
   const dependencies = React.useContext(DIContext);
   const { translation } = dependencies;
   const [state, setState] = useState(false);
@@ -43,6 +44,7 @@ const TodoLists = ({ text, id, onSelect, editItems }: Props) => {
                   value={name}
                   name={name}
                   onChange={inputVal}
+                  required
                 />
               </div>
               <div className="save-btn">
@@ -56,7 +58,7 @@ const TodoLists = ({ text, id, onSelect, editItems }: Props) => {
       ) : (
         <div className="todo-style">
           <div className="list-items">
-            <li>{text.name}</li>
+            <li>{todo.name}</li>
           </div>
           <div className="btn-align">
             <button

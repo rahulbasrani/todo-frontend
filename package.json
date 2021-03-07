@@ -28,6 +28,7 @@
   },
   "homepage": "https://github.com/jalantechnologies/boilerplate-react-typescript#readme",
   "dependencies": {
+    "@hookform/resolvers": "^1.3.5",
     "@material-ui/core": "^4.11.3",
     "@material-ui/icons": "^4.11.2",
     "@sentry/browser": "^5.5.0",
@@ -39,12 +40,14 @@
     "lodash": "^4.17.19",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
+    "react-hook-form": "^6.15.4",
     "react-i18next": "^10.11.4",
     "react-router-dom": "^5.0.1",
     "reactstrap": "^8.9.0",
     "use-async-effect": "^2.2.2",
     "winston": "^2.4.3",
-    "winston-papertrail": "^1.0.5"
+    "winston-papertrail": "^1.0.5",
+    "yup": "^0.32.9"
   },
   "devDependencies": {
     "@types/enzyme": "^3.10.3",
