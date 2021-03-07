@@ -21,7 +21,6 @@ const Todos: React.FC = () => {
     componentState,
     setComponentState,
   ] = React.useState<ComponentViewState>(ComponentViewState.DEFAULT);
-  const [clsForInput, setClsForInput] = React.useState("");
 
   const isError = componentState === ComponentViewState.ERROR;
   const printTodo = async () => {
@@ -42,29 +41,25 @@ const Todos: React.FC = () => {
   };
 
   const submitBtn = async (e: React.FormEvent<HTMLFormElement>) => {
-    if (todo.name !== "") {
-      const response = await todoService.addTodo(todo.name, todo.id);
-      if (response.data) {
-        setComponentState(ComponentViewState.LOADED);
-        setSuccessReaction(`${translation.t("SUCCESSMSG")}`);
-        setTimeout(setSuccessReaction, 2000);
-      } else {
-        setComponentState(ComponentViewState.ERROR);
-        setTimeout(setComponentState, 2000);
-      }
-      let todoName = todo.name;
-
-      setTodo({ name: "", id: Math.floor(Math.random() * 100000) });
-      setObjects([
-        ...objects,
-        {
-          name: todoName,
-          id: todo.id,
-        },
-      ]);
+    const response = await todoService.addTodo(todo.name, todo.id);
+    if (response.data) {
+      setComponentState(ComponentViewState.LOADED);
+      setSuccessReaction(`${translation.t("SUCCESSMSG")}`);
+      setTimeout(setSuccessReaction, 2000);
     } else {
-      setClsForInput("invalid-feedback");
+      setComponentState(ComponentViewState.ERROR);
+      setTimeout(setComponentState, 2000);
     }
+    let todoName = todo.name;
+
+    setTodo({ name: "", id: Math.floor(Math.random() * 100000) });
+    setObjects([
+      ...objects,
+      {
+        name: todoName,
+        id: todo.id,
+      },
+    ]);
   };
 
   const deleteItems = async (id: number) => {
@@ -103,7 +98,6 @@ const Todos: React.FC = () => {
     <>
       <div className="form-center">
         <form className="form-inline center-form" onSubmit={submitBtn}>
-          {/* /<div className="form-group mx-sm-3 mb-2"> */}
           <input
             type="text"
             placeholder={translation.t("ENTER_INPUTS")}
