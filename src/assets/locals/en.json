@@ -1,6 +1,9 @@
 {
   "ENTER_INPUTS": "Enter input",
   "ADD_INPUT": "Add",
+  "DELETE_INPUT": "Delete",
+  "USERNAME_VALID": "username(any)",
+  "PASSWORD_VALID": "password(any)",
   "LOGIN": "LOGIN",
   "LOGOUT": "LOGOUT",
   "TODO": "Todo App",
@@ -8,8 +11,10 @@
   "EDIT": "Edit",
   "SAVE": "Save",
   "TODODOWN": "Todo 👇",
-  "SUCCESSMSG": "😄 Your data has been successfully inserted😄",
+  "SUCCESSMSG": "😄Your data has been successfully inserted😄",
   "ERRORMSG": "😲Your data shows error😲",
   "CLSNAMEMSUCCESS": "success",
-  "CLSNAMEREJECT": "danger"
+  "CLSNAMEREJECT": "danger",
+  "DELETEMSG": "🎃your data has been successfully deleted🎃",
+  "EDITMSG": "😄Your data has been successfully Edited😄"
 }

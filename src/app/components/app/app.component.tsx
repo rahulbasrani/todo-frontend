@@ -21,16 +21,11 @@ const App = (): JSX.Element => {
         <Router>
           <div className="nav_bg mb-0">
             <div className="container-fluid">
-              <NavLink className="navbar-brand" to="/todo">
-                {translation.t("TODO")}
-              </NavLink>
+              <div className="navbar-brand">{translation.t("TODO")}</div>
             </div>
           </div>
-          <div>
-            <Link to="/todo">{translation.t("TODODOWN")}</Link>
-          </div>
           <Switch>
-            <Route exact path="/todo" component={Todos} />
+            <Route exact path="/" component={Todos} />
           </Switch>
         </Router>
       </div>
