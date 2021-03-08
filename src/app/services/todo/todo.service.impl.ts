@@ -26,17 +26,21 @@ export default class TodoServiceImpl implements TodoService {
     }
   }
 
-  async deleteTodo(id: number): Promise<ServiceResponse<Todo>> {
+  async deleteTodo(name: string, id: number): Promise<ServiceResponse<Todo>> {
     try {
+      let todos = {
+        name: name,
+        id: id,
+      };
+      const todo = new Todo(todos);
       let data = localStorage.getItem("todo");
-      let name;
       if (data) {
         let dataArr = JSON.parse(data);
-        name = dataArr[0].name;
+        todo.name = dataArr[0].name;
         dataArr.splice(id, 1);
         localStorage.setItem("todo", JSON.stringify(dataArr));
       }
-      return new ServiceResponse<Todo>({ name, id });
+      return new ServiceResponse<Todo>(todo);
     } catch (e) {
       return new ServiceResponse<Todo>(undefined, e);
     }
@@ -45,12 +49,17 @@ export default class TodoServiceImpl implements TodoService {
   async editTodo(name: string, id: number): Promise<ServiceResponse<Todo>> {
     let data = localStorage.getItem("todo");
     try {
+      let todos = {
+        name: name,
+        id: id,
+      };
+      const todo = new Todo(todos);
       if (data) {
         let dataArr = JSON.parse(data);
         dataArr.splice(id, 1, { name, id });
         localStorage.setItem("todo", JSON.stringify(dataArr));
       }
-      return new ServiceResponse<Todo>({ name, id });
+      return new ServiceResponse<Todo>(todo);
     } catch (e) {
       return new ServiceResponse<Todo>(undefined, e);
     }

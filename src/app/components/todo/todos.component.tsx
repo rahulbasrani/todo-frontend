@@ -23,17 +23,27 @@ const Todos: React.FC = () => {
   ] = React.useState<ComponentViewState>(ComponentViewState.DEFAULT);
 
   const isError = componentState === ComponentViewState.ERROR;
-  const printTodo = async () => {
+  const successAddMsg = () => {
+    setSuccessReaction(`${translation.t("SUCCESSMSG")}`);
+    setTimeout(setSuccessReaction.bind(null, ""), 2000);
+  };
+  const successDelMsg = () => {
+    setSuccessReaction(`${translation.t("DELETEMSG")}`);
+    setTimeout(setSuccessReaction.bind(null, ""), 2000);
+  };
+  const failMsg = () => {
+    setTimeout(setComponentState.bind(null, ""), 2000);
+  };
+  const getTodo = async () => {
     const response = await todoService.getTodos();
     if (response.data) {
       setObjects(response.data);
     } else {
       setComponentState(ComponentViewState.ERROR);
-      setTimeout(setComponentState, 2000);
     }
   };
   useEffect(() => {
-    printTodo();
+    getTodo();
   }, []);
 
   const inputValue = (e: ChangeEvent<HTMLInputElement>) => {
@@ -41,14 +51,14 @@ const Todos: React.FC = () => {
   };
 
   const submitBtn = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     const response = await todoService.addTodo(todo.name, todo.id);
     if (response.data) {
       setComponentState(ComponentViewState.LOADED);
-      setSuccessReaction(`${translation.t("SUCCESSMSG")}`);
-      setTimeout(setSuccessReaction, 2000);
+      successAddMsg();
     } else {
       setComponentState(ComponentViewState.ERROR);
-      setTimeout(setComponentState, 2000);
+      failMsg();
     }
     let todoName = todo.name;
 
@@ -62,35 +72,32 @@ const Todos: React.FC = () => {
     ]);
   };
 
-  const deleteItems = async (id: number) => {
-    const response = await todoService.deleteTodo(id);
+  const deleteItem = async (id: number) => {
+    const response = await todoService.deleteTodo(todo.name, id);
     if (response.data) {
       setObjects((oldItems: { name: string; id: number }[]) => {
         return oldItems.filter((arrElem: {}, index: number) => {
           return index != id;
         });
       });
-
       setComponentState(ComponentViewState.LOADED);
-      setSuccessReaction(`${translation.t("DELETEMSG")}`);
-      setTimeout(setSuccessReaction, 2000);
+      successDelMsg();
     } else {
       setComponentState(ComponentViewState.ERROR);
-      setTimeout(setComponentState, 2000);
+      failMsg();
     }
   };
 
-  const editItems = async (names: string, ids: number) => {
+  const editItem = async (names: string, ids: number) => {
     const response = await todoService.editTodo(names, ids);
     const responseGetTodo = await todoService.getTodos();
     if (response.data && responseGetTodo.data) {
       setObjects(responseGetTodo.data);
       setComponentState(ComponentViewState.LOADED);
-      setSuccessReaction(`${translation.t("SUCCESSMSG")}`);
-      setTimeout(setSuccessReaction, 2000);
+      successAddMsg();
     } else {
       setComponentState(ComponentViewState.ERROR);
-      setTimeout(setComponentState, 2000);
+      failMsg();
     }
   };
 
@@ -118,8 +125,8 @@ const Todos: React.FC = () => {
               key={index}
               todo={elemVal}
               id={index}
-              onSelect={deleteItems}
-              editItems={editItems}
+              onSelect={deleteItem}
+              editItem={editItem}
             />
           );
         })}

@@ -11,9 +11,9 @@ interface Props {
   todo: Todo;
   id: number;
   onSelect: (id: number) => void;
-  editItems: (names: string, ids: number) => void;
+  editItem: (names: string, ids: number) => void;
 }
-const TodoLists = ({ todo, id, onSelect, editItems }: Props) => {
+const TodoLists = ({ todo, id, onSelect, editItem }: Props) => {
   const dependencies = React.useContext(DIContext);
   const { translation } = dependencies;
   const [state, setState] = useState(false);
@@ -27,7 +27,7 @@ const TodoLists = ({ todo, id, onSelect, editItems }: Props) => {
   };
 
   const submitEdit = () => {
-    editItems(name, id);
+    editItem(name, id);
     setState(false);
   };
 
